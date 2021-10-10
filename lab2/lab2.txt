@@ -1,0 +1,19 @@
+inv=['#','%','^','&','*','!','(',')',]
+def wrongSym(a):
+    for i in inv:
+        if i in a:
+            return True
+    return False
+for i in range(int(input('how many string do you want to test?'))):
+    string=input('Enter to check valid email and web address:')
+    if string.startswith('www.') and string.endswith('.com') and string.islower():
+        print('web',(i+1))
+    elif not string[0].isnumeric() and '@' in string  and string.islower():
+        index=string.find("@")
+        lasthalf=string.count('.'),string.count('@')
+        if lasthalf[0]==0 or lasthalf[1]>1  or wrongSym(string):
+            print('invalid', (i + 1))
+        else:
+            print('email', (i + 1))
+    else:
+        print('invalid', (i + 1))
